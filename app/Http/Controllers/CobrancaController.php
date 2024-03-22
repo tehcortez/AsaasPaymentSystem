@@ -13,13 +13,14 @@ use App\Services\CobrancaAsaasService\CobrancaAsaas\Pix;
 use App\Services\CobrancaAsaasServiceDto\CreditCardAsaasDto;
 use App\Services\CobrancaAsaasServiceDto\CreditCardHolderInfoAsaasDto;
 use DateTimeImmutable;
+use Illuminate\Contracts\View\View;
 
 class CobrancaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user)
+    public function index(User $user): View
     {
         //        $cobrancas = Cobranca::all();
         $cobrancas = $user->cobrancas;
@@ -35,7 +36,7 @@ class CobrancaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(User $user)
+    public function create(User $user): View
     {
         return view('cobranca_create',
             [
@@ -107,12 +108,12 @@ class CobrancaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user, Cobranca $cobranca)
+    public function show(User $user, Cobranca $cobranca): View
     {
         return view('cobranca_show', ['user' => $user, 'cobranca' => $cobranca]);
     }
 
-    public function error(User $user)
+    public function error(User $user): View
     {
         return view('cobranca_errors', ['user' => $user]);
     }
