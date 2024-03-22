@@ -38,4 +38,35 @@ Todo o conhecimento aplicado no Teste será analisado, então não se baseie som
 2. Composer versão 2 ou superior para instalar as bibliotecas e pacotes necessários para o Laravel.
 3. MySQL server instalado e configurado
 
-[TODO]
+**Passo a Passo**
+1. Faça o clone do repositorio ou o download da aplicação pelo [link](https://github.com/tehcortez/AsaasPaymentSystem/archive/refs/heads/main.zip) e extraia numa pasta;
+2. Na pasta raiz do projeto execute o comando:
+```
+composer install
+```
+3. Faça uma cópia do arquivo .env.example na raiz do projeto e renomeie-o para .env
+5. Abra o arquivo .env e insira seus dados de acesso ao MySQL e sua credencial de acesso ao Asaas (API_KEY):
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nome_da_database
+DB_USERNAME=usuario_mysql
+DB_PASSWORD=senha_mysql
+```
+```
+ASAAS_APIKEY=credencial_de_acesso
+```
+6. Gere uma application key através do comando:
+```
+php artisan key:generate
+```
+7. Execute o seguinte comando para criar as tabelas no banco de dados:
+```
+php artisan migrate
+```
+8. Inicie um servidor web local através do comando:
+```
+php artisan serve
+```
+10. Acesse a aplicação através de qualquer browser pelo link http://localhost:8000/
