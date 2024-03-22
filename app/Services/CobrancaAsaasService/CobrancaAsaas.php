@@ -6,6 +6,7 @@ use App\Services\CobrancaAsaasService\CobrancaAsaas\Boleto;
 use App\Services\CobrancaAsaasService\CobrancaAsaas\CreditCard;
 use App\Services\CobrancaAsaasService\CobrancaAsaas\Pix;
 use DateTimeImmutable;
+use InvalidArgumentException;
 
 readonly class CobrancaAsaas
 {
@@ -47,6 +48,7 @@ readonly class CobrancaAsaas
             case 'CREDIT_CARD':
                 return CreditCard::fromJsonObject($jsonObj);
         }
+        throw new InvalidArgumentException('Billing type not found');
     }
 
     public static function fromErrorResponseJsonObject(
