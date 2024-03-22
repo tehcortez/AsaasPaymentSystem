@@ -69,4 +69,4 @@ php artisan migrate
 ```
 php artisan serve
 ```
-10. Acesse a aplicação através de qualquer browser pelo link http://localhost:8000/
+9. Acesse a aplicação através de qualquer browser pelo link http://localhost:8000/
