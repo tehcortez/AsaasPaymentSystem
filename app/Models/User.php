@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function cobrancas()
+    {
+        return $this->hasMany(Cobranca::class, 'user_id');
+    }
 }
