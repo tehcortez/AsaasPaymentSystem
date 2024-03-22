@@ -50,16 +50,4 @@ readonly class CobrancaAsaas
         }
         throw new InvalidArgumentException('Billing type not found');
     }
-
-    public static function fromErrorResponseJsonObject(
-        object $jsonObj,
-        string $billingType,
-        int $value,
-        DateTimeImmutable $dueDate,
-    ): CreditCard {
-        switch ($jsonObj->billingType) {
-            case 'CREDIT_CARD':
-                return CreditCard::fromJsonObject($jsonObj);
-        }
-    }
 }
