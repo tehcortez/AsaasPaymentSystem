@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <th scope="row">QRCode</th>
-                <td><img src="data:image/png;base64, {{ $cobranca->pix_encoded_image }}"></td>
+                <td><img src="data:image/png;base64, {{ $cobranca->pix_encoded_image }}" alt="QrCode"></td>
             </tr>
         @endif
     </table>
