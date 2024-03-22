@@ -5,6 +5,7 @@ namespace App\Services\CobrancaAsaasService;
 use App\Services\CobrancaAsaasService\CobrancaAsaas\Boleto;
 use App\Services\CobrancaAsaasService\CobrancaAsaas\CreditCard;
 use App\Services\CobrancaAsaasService\CobrancaAsaas\Pix;
+use App\Services\CobrancaAsaasService\Exception\AsaasDateException;
 use DateTimeImmutable;
 use InvalidArgumentException;
 
@@ -38,6 +39,9 @@ readonly class CobrancaAsaas
         return $this->dueDate;
     }
 
+    /**
+     * @throws AsaasDateException
+     */
     public static function fromJsonObject(object $jsonObj): Boleto|Pix|CreditCard
     {
         switch ($jsonObj->billingType) {

@@ -59,8 +59,14 @@ readonly class CobrancaAsaasService implements AsaasServiceInterface
 
             return false;
         }
-
-        return CobrancaAsaas::fromJsonObject($jsonObj);
+        try{
+            $cobrancaAsaas = CobrancaAsaas::fromJsonObject($jsonObj);
+        } catch (CobrancaAsaasService\Exception\AsaasDateException $e) {
+            return AsaasApiErrorList::createSingleError(
+                $e->getMessage(),
+                'Erro ao processar resposta do servidor Asaas.');
+        }
+        return $cobrancaAsaas;
     }
 
     private function getRequestBody(

@@ -17,4 +17,11 @@ readonly class AsaasApiError
             $jsonObj->description
         );
     }
+
+    public static function create(string $code, string $description): self {
+        return new self(
+            $code,
+            $description
+        );
+    }
 }

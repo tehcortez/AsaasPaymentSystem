@@ -28,4 +28,9 @@ class AsaasApiErrorList
 
         return new self(...$asaasApiErrorList);
     }
+
+    public static function createSingleError(string $code, string $errorDescription): self
+    {
+        return new self(AsaasApiError::create($code,$errorDescription));
+    }
 }
