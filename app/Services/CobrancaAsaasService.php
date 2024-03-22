@@ -7,6 +7,7 @@ use App\Services\CobrancaAsaasService\CobrancaAsaas;
 use App\Services\CobrancaAsaasServiceDto\CreditCardAsaasDto;
 use App\Services\CobrancaAsaasServiceDto\CreditCardHolderInfoAsaasDto;
 use DateTimeImmutable;
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
@@ -27,7 +28,7 @@ readonly class CobrancaAsaasService implements AsaasServiceInterface
         ?CreditCardAsaasDto $creditCardAsaasDto = null,
         ?CreditCardHolderInfoAsaasDto $creditCardHolderInfoAsaasDto = null,
     ): CobrancaAsaas|AsaasApiErrorList|false {
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
 
         $body = $this->getRequestBody(
             $billingType,

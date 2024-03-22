@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use GuzzleHttp\Client;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
 
@@ -14,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
         $saasApikey = Config::get('app.asaas_apikey');
 
         $response = $client->request('GET', 'https://sandbox.asaas.com/api/v3/customers', [

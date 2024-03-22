@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Cobranca;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cobranca>
+ * @extends Factory<Cobranca>
  */
 class CobrancaFactory extends Factory
 {

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\UsuarioAsaasService\UsuarioAsaas;
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
 use JsonException;
@@ -16,7 +17,7 @@ class UsuarioAsaasService implements AsaasServiceInterface, UsuarioAsaasServiceI
 
     public function createNewUser(string $name, $cpfCnpj): UsuarioAsaas|false
     {
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
 
         try {
             $response = $client->request('POST', 'https://sandbox.asaas.com/api/v3/customers', [
