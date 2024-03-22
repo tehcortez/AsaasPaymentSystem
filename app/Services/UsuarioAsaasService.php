@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
 use JsonException;
 
-class UsuarioAsaasService implements AsaasServiceInterface, UsuarioAsaasServiceInterface
+readonly class UsuarioAsaasService implements AsaasServiceInterface, UsuarioAsaasServiceInterface
 {
     public function __construct(
         private string $asaasApikey
